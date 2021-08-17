@@ -34,9 +34,31 @@ class MyHomePage extends StatelessWidget {
         child: Padding(
           // all 말고 from~ 줄 수 있음
           padding: const EdgeInsets.all(10.0),
-          child: CircleAvatar(
-            backgroundImage: AssetImage('images/p1.png'),
-            radius: 50.0,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                // 이미지를 원에 집어 넣어서 사용하기
+                backgroundImage: AssetImage('images/p1.png'),
+                radius: 50.0,
+              ),
+              SizedBox(
+                height: 30,
+                ),
+              CircleAvatar(
+                // 이미지를 원에 집어 넣어서 사용하기
+                backgroundImage: AssetImage('images/p2.png'),
+                radius: 50.0,
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              CircleAvatar(
+                // 이미지를 원에 집어 넣어서 사용하기
+                backgroundImage: AssetImage('images/p3.png'),
+                radius: 50.0,
+              ),
+            ],
           ),
         ),
       ),
