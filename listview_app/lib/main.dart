@@ -115,7 +115,7 @@ with SingleTickerProviderStateMixin { // tabbar 를 위해 with 이하 작성해
             list: animalList,
           ), 
           SecondPage(
-            // list: animalList,
+            list: animalList,
           )
         ],
         // 이거 꼭 해줘야 함!!

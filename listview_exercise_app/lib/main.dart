@@ -149,7 +149,9 @@ with SingleTickerProviderStateMixin{
           FirstPage(
             list: countryList,
           ),
-          SecondPage(),
+          SecondPage(
+            list: countryList,
+          ),
         ],
         controller: controller,
         ),
