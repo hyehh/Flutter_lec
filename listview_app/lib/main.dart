@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tabbar_app/firstPage.dart';
-import 'package:tabbar_app/secondPage.dart';
-import 'package:tabbar_app/animalItem.dart';
+import 'package:listview_app/firstPage.dart';
+import 'package:listview_app/secondPage.dart';
+import 'package:listview_app/animalItem.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,6 +33,7 @@ class _MyHomePageState extends State<MyHomePage>
 with SingleTickerProviderStateMixin { // tabbar 를 위해 with 이하 작성해야 함!
 
   late TabController controller;
+  List<Animal> animalList = [];
 
   @override
   void initState() { // build 하기 전에 실행되는 것!
@@ -41,6 +42,55 @@ with SingleTickerProviderStateMixin { // tabbar 를 위해 with 이하 작성해
     // length는 탭 개수
     // vsync 로 첫 번째 페이지와 두 번째 페이지에 탭바를 집어 넣음!
     controller =  TabController(length: 2, vsync: this);
+    animalList.add(Animal(
+      animalName: '벌', 
+      kind: '곤충', 
+      imagePath: 'images/bee.png', 
+      flyExist: true)
+      );
+      animalList.add(Animal(
+      animalName: '고양이', 
+      kind: '포유류', 
+      imagePath: 'images/cat.png', 
+      flyExist: false)
+      );
+      animalList.add(Animal(
+      animalName: '젖소', 
+      kind: '포유류', 
+      imagePath: 'images/cow.png', 
+      flyExist: false)
+      );
+      animalList.add(Animal(
+      animalName: '강아지', 
+      kind: '포유류', 
+      imagePath: 'images/dog.png', 
+      flyExist: false)
+      );
+      animalList.add(Animal(
+      animalName: '여우', 
+      kind: '포유류', 
+      imagePath: 'images/fox.png', 
+      flyExist: false)
+      );
+      animalList.add(Animal(
+      animalName: '원숭이', 
+      kind: '영장류', 
+      imagePath: 'images/monkey.png', 
+      flyExist: false)
+      );
+      animalList.add(Animal(
+      animalName: '돼지', 
+      kind: '포유류', 
+      imagePath: 'images/pig.png', 
+      flyExist: false)
+      );
+      animalList.add(Animal(
+      animalName: '늑대', 
+      kind: '포유류', 
+      imagePath: 'images/wolf.png', 
+      flyExist: false)
+      );
+      
   }
 
   @override
@@ -54,13 +104,19 @@ with SingleTickerProviderStateMixin { // tabbar 를 위해 with 이하 작성해
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text("Tab Bar Test"),
-      // ),
+      appBar: AppBar(
+        title: Text("ListView Test"),
+      ),
       body: TabBarView( // 여기에 TabBarView가 들어감!
         children: [
           // 여기에서 데이터를 보내주면 되는 것임! 생성자를 통해 보내는 것!
-          FirstPage(), SecondPage()
+          FirstPage(
+            // key값: value 값
+            list: animalList,
+          ), 
+          SecondPage(
+            // list: animalList,
+          )
         ],
         // 이거 꼭 해줘야 함!!
         controller: controller,
