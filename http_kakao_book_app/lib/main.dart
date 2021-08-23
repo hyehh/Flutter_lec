@@ -77,30 +77,36 @@ class _MyHomePageState extends State<MyHomePage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            data[index]['title'].length > 25
-                                ? "너무 긴 제목"
-                                : data[index]['title'],
+                            data[index]['title'].toString().length > 15
+                                ? Text(
+                                  data[index]['title']
+                                  .toString()
+                                  .replaceRange(20, data[index]['title'].toString().length, '...'),
+                                style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
+                                )
+                                : Text(data[index]['title'],
                             style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold),
-                          ),
+                                ),
                           Text(
                             data[index]['authors'][0],
                             style: TextStyle(
-                              fontSize: 15
+                              fontSize: 13
                             ),
                           ),
                           Text(
                             data[index]['sale_price'].toString(),
                             style: TextStyle(
-                              fontSize: 15
+                              fontSize: 13
                             ),
                           ),
                           Text(
                             data[index]['status'],
                             style: TextStyle(
-                              fontSize: 15
+                              fontSize: 13
                             ),
                           ),
                         ],
@@ -117,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          data = [];
+          data.clear();
           getJSONData();
         },
         child: Icon(Icons.file_download),
