@@ -166,16 +166,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: (){
-            if (page == 1) {
-              print("여기?");
-              page = 1;
-              data.clear();
-              getJSONData();    
-            }else {
-              print("저기?");
-              data.clear();
-              getJSONData();   
-            }
+            page = 1;
+            data.clear();
+            getJSONData();
           },
           child: Icon(Icons.file_download),
         ),
